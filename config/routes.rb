@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
 
-  resources :cocktails do
-    resources :doses, only: [:new, :create, :destroy]
+  resources :cocktails, only: [:new, :create, :index, :show] do
+    resources :doses, only: [:create, :destroy]
   end
+
+  root "cocktails#index"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
